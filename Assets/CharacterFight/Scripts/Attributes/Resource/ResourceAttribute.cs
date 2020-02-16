@@ -9,7 +9,6 @@ public class ResourceAttribute : Attribute<float> {
         SetValue(AttributeValueType.Add, 0f);
         SetValue(AttributeValueType.Min, p_min);
         SetValue(AttributeValueType.Max, p_max);
-        SetValue(AttributeValueType.Add, 0f);
     }
 
     public override void AfterModifierUpdate() {

@@ -8,16 +8,16 @@ public static class Factory {
         IAttributeModifier modifierFactor = null;
         switch (p_modifierType) {
             case AttributModifierType.Resource:
-                modifierFactor = new Resource();
+                modifierFactor = new ResourceModifier();
                 break;
 
             case AttributModifierType.DurationRatio:
-                modifierFactor = new DurationRatio();
+                modifierFactor = new DurationRatioModifier();
                 break;
 
 
             case AttributModifierType.Duration:
-                modifierFactor = new Duration();
+                modifierFactor = new DurationModifier();
                 break;
 
             default:

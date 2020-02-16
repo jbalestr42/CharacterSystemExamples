@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : AAttributeModifier<ResourceAttributeParam, ResourceAttribute> {
+public class ResourceModifier : AAttributeModifier<ResourceAttributeParam, ResourceAttribute> {
 
     Attribute<float> _regen;
     Attribute<float> _max;

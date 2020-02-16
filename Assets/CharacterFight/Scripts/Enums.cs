@@ -1,4 +1,5 @@
-﻿public class AttributeValueType {
+﻿public class AttributeValueType
+{
     public static int Default = -1;
     public static int Base = 0;
     public static int AbsoluteBonus = 1;
@@ -8,7 +9,8 @@
     public static int Add = 5;
 }
 
-public class AttributeType {
+public class AttributeType
+{
     public static int HealthMax = 0;
     public static int HealthRegen = 1;
     public static int Damage = 2;
@@ -22,13 +24,15 @@ public class AttributeType {
     public static int Money = 10;
 }
 
-public enum AttributModifierType {
+public enum AttributModifierType
+{
     Resource,
 	DurationRatio,
     Duration
 }
 
-public enum EventType {
+public enum EventType
+{
 	OnGetDamaged,
 	OnHit,
 	OnDie,
@@ -36,7 +40,8 @@ public enum EventType {
 	OnGetItem
 }
 
-public enum MovementType {
+public enum MovementType
+{
 	Player,
 	Random
 }
