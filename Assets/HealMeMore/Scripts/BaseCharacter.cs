@@ -8,7 +8,6 @@ public class BaseCharacter : MonoBehaviour
     {
 		AttributeManager attributeManager = GetComponent<AttributeManager>();
         attributeManager.AddAttribute(AttributeType.Health, new ResourceAttribute(100, 0, 1000));
-        attributeManager.AddAttribute(AttributeType.HealthMax, new BasicAttribute(130, 0, 1000));
 		attributeManager.AddAttribute(AttributeType.HealthRegen, new BasicAttribute(1, 0, 100));
 		attributeManager.AddAttribute(AttributeType.Speed, new BasicAttribute(5, 0, 10));
 		attributeManager.AddAttribute(AttributeType.Damage, new BasicAttribute(80, 0, 1000));

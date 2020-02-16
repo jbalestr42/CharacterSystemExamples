@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+/// <summary>
+/// This class manage a resource attribute such as Life or Mana
+/// </summary>
 public class ResourceAttribute : Attribute<float> {
 
     public ResourceAttribute(float p_value, float p_min, float p_max)

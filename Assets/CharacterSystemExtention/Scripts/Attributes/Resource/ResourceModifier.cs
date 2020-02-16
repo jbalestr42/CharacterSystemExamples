@@ -1,7 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// This class modify a resource based on the given param
+/// Update the maximum value of the resource
+/// Apply the regen value to the resource
+/// </summary>
 public class ResourceModifier : AAttributeModifier<ResourceAttributeParam, ResourceAttribute> {
 
     Attribute<float> _regen;
