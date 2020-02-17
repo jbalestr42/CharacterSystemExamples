@@ -52,7 +52,7 @@ public class ResourceModifier : AAttributeModifier<ResourceModifier.Params, Reso
 
     Attribute<float> _regen;
     Attribute<float> _max;
-    float _regenRate = 1f;
+    float _regenRate = 1f; // Could be an attribute as well
     float _timer = 0f;
 
     public override void OnStart(GameObject p_owner)
