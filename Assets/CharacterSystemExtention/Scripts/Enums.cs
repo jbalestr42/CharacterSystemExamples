@@ -28,7 +28,8 @@ public enum AttributModifierType
 {
     Resource,
 	DurationRatio,
-    Duration
+    Duration,
+    SimpleValue
 }
 
 public enum EventType

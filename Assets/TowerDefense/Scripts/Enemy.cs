@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour, IKillable {
 	void Awake() {
         AttributeManager attributeManager = GetComponent<AttributeManager>();
         attributeManager.AddAttribute(AttributeType.Speed, new BasicAttribute(1, 0, 10));
-        attributeManager.AddAttribute(AttributeType.Health, new ResourceAttribute(100, 0, 1000));
+        attributeManager.AddAttribute(AttributeType.Health, new ResourceModifier.Attribute(100, 0, 1000));
         attributeManager.AddAttribute(AttributeType.Money, new BasicAttribute(10, 0, 100));
 
         _speed = GetComponent<AttributeManager>().GetAttribute<float>(AttributeType.Speed);

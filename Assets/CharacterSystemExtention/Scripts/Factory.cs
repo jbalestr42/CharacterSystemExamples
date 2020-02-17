@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Factory {
+public static class Factory
+{
 
-    public static IAttributeModifier GetModifier(AttributModifierType p_modifierType, GameObject p_owner, BaseAttributeParam p_param) {
+    public static IAttributeModifier GetModifier(AttributModifierType p_modifierType, GameObject p_owner, BaseAttributeParam p_param)
+    {
         IAttributeModifier modifierFactor = null;
-        switch (p_modifierType) {
+        switch (p_modifierType)
+        {
             case AttributModifierType.Resource:
                 modifierFactor = new ResourceModifier();
                 break;
@@ -18,6 +21,11 @@ public static class Factory {
 
             case AttributModifierType.Duration:
                 modifierFactor = new DurationModifier();
+                break;
+
+
+            case AttributModifierType.SimpleValue:
+                modifierFactor = new SingeValueModifier();
                 break;
 
             default:

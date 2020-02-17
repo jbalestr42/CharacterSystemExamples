@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         AttributeManager attributeManager = GetComponent<AttributeManager>();
-        attributeManager.AddAttribute(AttributeType.Money, new ResourceAttribute(100, 0, 1000));
+        attributeManager.AddAttribute(AttributeType.Money, new ResourceModifier.Attribute(100, 0, 1000));
         UpdateMoney(0f);
         _enemies = new List<Enemy>();
     }

@@ -1,15 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject _leftTeam;
-    public GameObject _rightTeam;
+    [SerializeField]
+    GameObject _characterPanelPrefab = null;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject _leftTeam = null;
+
+    [SerializeField]
+    GameObject _rightTeam = null;
+    
+    public BaseCharacter AddLeftTeam()
     {
-        
+        GameObject characterPanel = Instantiate(_characterPanelPrefab);
+        characterPanel.transform.SetParent(_leftTeam.transform);
+        characterPanel.GetComponent<BaseCharacter>().Team = Teams.Left;
+        return characterPanel.GetComponent<BaseCharacter>();
+    }
+    
+    public BaseCharacter AddRightTeam()
+    {
+        GameObject characterPanel = Instantiate(_characterPanelPrefab);
+        characterPanel.transform.SetParent(_rightTeam.transform);
+        characterPanel.GetComponent<BaseCharacter>().Team = Teams.Right;
+        return characterPanel.GetComponent<BaseCharacter>();
     }
 }
