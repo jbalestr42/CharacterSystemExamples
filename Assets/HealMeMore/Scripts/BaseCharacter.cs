@@ -20,7 +20,6 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
 		attributeManager.AddAttribute(AttributeType.HealthMax, new BasicAttribute(250, 0, 1000));
 		attributeManager.AddAttribute(AttributeType.HealthRegen, new BasicAttribute(1, 0, 100));
 		attributeManager.AddAttribute(AttributeType.Damage, new BasicAttribute(80, 0, 1000));
-		attributeManager.AddAttribute(AttributeType.AttackRate, new BasicAttribute(1, 0, 5));
         attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.Resource, gameObject, new ResourceModifier.Params(AttributeType.HealthRegen, AttributeType.HealthMax, AttributeType.Health)));
 	}
 

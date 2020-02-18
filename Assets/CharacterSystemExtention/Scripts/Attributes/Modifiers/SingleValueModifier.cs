@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 
-public class SingeValueModifier : AAttributeModifier<SingeValueModifier.Params, Attribute<float>>
+public class SingleValueModifier : AAttributeModifier<SingleValueModifier.Params, Attribute<float>>
 {
     [System.Serializable]
     public class Params : AttributeParam<float>
     {
         public int sourceAttributeType;
+        public bool inverse;
 
         public Params()
-            :this(0, 0, 0) { }
+            :this(0, 0, 0, false) { }
 
-        public Params(int p_targetAttributeType, int p_targetAttributeValueType, int p_sourceAttributeType) 
+        public Params(int p_targetAttributeType, int p_targetAttributeValueType, int p_sourceAttributeType, bool p_inverse) 
             :base(0f, p_targetAttributeType, p_targetAttributeValueType)
         {
             sourceAttributeType = p_sourceAttributeType;
+            inverse = p_inverse;
         }
     }
 
@@ -30,7 +32,8 @@ public class SingeValueModifier : AAttributeModifier<SingeValueModifier.Params, 
     {
         if (!_isDone)
         {
-            p_attribute.SetValue(Param.attributeValueType, p_attribute.GetValue(Param.attributeValueType) - _source.Value);
+            float value = Param.inverse ? -_source.Value : _source.Value;
+            p_attribute.SetValue(Param.attributeValueType, p_attribute.GetValue(Param.attributeValueType) + value);
             _isDone = true;
         }
     }

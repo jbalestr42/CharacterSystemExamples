@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterUI : MonoBehaviour
 {
     [SerializeField]
-    GameObject _healthFill;
+    GameObject _healthFill = null;
 
     AttributeManager _attributeManager = null;
 

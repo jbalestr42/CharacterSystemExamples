@@ -16,7 +16,7 @@ public class HitCharacterSkill : ASkill
         if (target != null)
         {
             AttributeManager attManager = p_owner.GetComponent<AttributeManager>();
-            attManager.AddModifier(Factory.GetModifier(AttributModifierType.SimpleValue, p_owner, new SingeValueModifier.Params(AttributeType.Health, AttributeValueType.Add, AttributeType.Damage)));
+            attManager.AddModifier(Factory.GetModifier(AttributModifierType.SimpleValue, p_owner, new SingleValueModifier.Params(AttributeType.Health, AttributeValueType.Add, AttributeType.Damage, true)));
         }
 	}
 }
