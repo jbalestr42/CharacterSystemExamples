@@ -19,8 +19,10 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
         attributeManager.AddAttribute(AttributeType.Health, new ResourceModifier.Attribute(100, 0, 1000));
 		attributeManager.AddAttribute(AttributeType.HealthMax, new BasicAttribute(250, 0, 1000));
 		attributeManager.AddAttribute(AttributeType.HealthRegen, new BasicAttribute(1, 0, 100));
-		attributeManager.AddAttribute(AttributeType.Damage, new BasicAttribute(80, 0, 1000));
+		attributeManager.AddAttribute(AttributeType.Damage, new BasicAttribute(5, 0, 1000));
+		attributeManager.AddAttribute(AttributeType.AttackRate, new BasicAttribute(2, 0, 1000));
         attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.Resource, gameObject, new ResourceModifier.Params(AttributeType.HealthRegen, AttributeType.HealthMax, AttributeType.Health)));
+        attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.DurationRatio, gameObject, new DurationModifier.Params<float>(null, false, 10, 2.0f, AttributeType.AttackRate, AttributeValueType.RelativeBonus)));
 	}
 
     public GameObject GetTarget()
