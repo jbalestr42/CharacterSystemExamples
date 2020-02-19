@@ -25,7 +25,7 @@ public static class Factory
 
 
             case AttributModifierType.SimpleValue:
-                modifierFactor = new SingleValueModifier();
+                modifierFactor = new SingleValueAttributeModifier();
                 break;
 
             default:

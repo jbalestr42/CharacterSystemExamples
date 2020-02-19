@@ -3,25 +3,24 @@ using UnityEngine;
 
 public class HitCharacterSkill : AAttributeSkill
 {
-    AttributeManager _attributeManager = null;
-
 	void Start()
     {
         List<IRequirement> requirements = new List<IRequirement>();
 		requirements.Add(new GameStartReq());
 
-        _attributeManager = GetComponent<AttributeManager>();
+        AttributeManager attributeManager = GetComponent<AttributeManager>();
         IProgressTracker progressTracker = GetComponent<IProgressTrackerProvider>()?.CreateTracker();
 
-		Init(null, _attributeManager.GetAttribute<float>(AttributeType.AttackRate), requirements, progressTracker);
+		Init(null, attributeManager.GetAttribute<float>(AttributeType.AttackRate), requirements, progressTracker);
     }
 
     public override void Cast(GameObject p_owner)
     {
         GameObject target = p_owner.GetComponent<IHasTarget>()?.GetTarget();
-        if (target != null)
+        AttributeManager attributeManager = target?.GetComponent<AttributeManager>();
+        if (target != null && attributeManager != null)
         {
-            _attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.SimpleValue, p_owner, new SingleValueModifier.Params(AttributeType.Health, AttributeValueType.Add, AttributeType.Damage, true)));
+            attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.SimpleValue, target, new SingleValueAttributeModifier.Params(AttributeType.Health, AttributeValueType.Add, p_owner, AttributeType.Damage, true)));
         }
 	}
 }
