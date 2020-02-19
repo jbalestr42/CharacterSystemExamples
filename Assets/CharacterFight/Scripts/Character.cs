@@ -7,8 +7,8 @@ public class Character : MonoBehaviour, IKillable, ICharacterObservable {
 	public delegate void OnCharacterEventDelegate(GameObject p_owner);
 	Dictionary<EventType, OnCharacterEventDelegate> _events;
 
-    public ModifierIconGroup _iconGroup;
-    public ModifierIconGroup _skillGroup;
+    public ProgressIconGroup _iconGroup;
+    public ProgressIconGroup _skillGroup;
     public MovementType _movementType;
 
 	void Start() {

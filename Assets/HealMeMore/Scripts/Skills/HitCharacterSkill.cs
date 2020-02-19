@@ -11,11 +11,9 @@ public class HitCharacterSkill : AAttributeSkill
 		requirements.Add(new GameStartReq());
 
         _attributeManager = GetComponent<AttributeManager>();
+        IProgressTracker progressTracker = GetComponent<IProgressTrackerProvider>()?.CreateTracker();
 
-
-        // TODO get component ProgressTrackerManagerComponent
-
-		Init(null, _attributeManager.GetAttribute<float>(AttributeType.AttackRate), requirements, null);
+		Init(null, _attributeManager.GetAttribute<float>(AttributeType.AttackRate), requirements, progressTracker);
     }
 
     public override void Cast(GameObject p_owner)
