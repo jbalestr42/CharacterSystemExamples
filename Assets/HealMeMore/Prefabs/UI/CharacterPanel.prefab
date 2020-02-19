@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 1203077951021790770}
   - component: {fileID: 4692021374836915157}
   - component: {fileID: 1716376559}
+  - component: {fileID: 7202473571951319357}
   m_Layer: 5
   m_Name: CharacterPanel
   m_TagString: Untagged
@@ -424,10 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987871c1776968c4bb5e6b51eed3b39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressTrackerPrefab: {fileID: 1523483299545988, guid: ffcf4a67d323a1d48838348d44d20a7a,
-    type: 3}
   _healthFill: {fileID: 3759191538540995651}
-  _skillProgressGroup: {fileID: 257032144}
 --- !u!114 &1716376559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,3 +451,18 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &7202473571951319357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759191539646004555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08e960ae8a9a544aab8fd08abd17778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _progressTrackerPrefab: {fileID: 1523483299545988, guid: ffcf4a67d323a1d48838348d44d20a7a,
+    type: 3}
+  _progressTrackerGroup: {fileID: 257032145}

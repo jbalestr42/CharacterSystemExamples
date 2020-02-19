@@ -6,7 +6,6 @@ public class ProgressIconUI : MonoBehaviour, IProgressTracker
     UnityEngine.UI.Image _background = null;
 
     [SerializeField]
-
     UnityEngine.UI.Image _overlay = null;
 
     [SerializeField]
