@@ -24,18 +24,19 @@ public class InteractionManager : Singleton<InteractionManager>
                     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                     {
-                        var interactable = hit.collider.gameObject.GetComponentInParent<ISelectable>();
+                        ISelectable selectable = hit.collider.gameObject.GetComponentInParent<ISelectable>();
 
-                        if (_selectable != interactable)
+                        if (_selectable != selectable)
                         {
                             if (_selectable != null)
                             {
                                 _selectable.UnSelect();
                                 _selectable = null;
                             }
-                            _selectable = interactable;
-                            if (_selectable != null)
+
+                            if (selectable != null)
                             {
+                                _selectable = selectable;
                                 _selectable.Select();
                             }
                         }
