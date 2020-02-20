@@ -1,40 +1,63 @@
 ﻿using UnityEngine;
 
-public class SingleValueAttributeModifier : AAttributeModifier<SingleValueAttributeModifier.Params, Attribute<float>>
+public class SingleValueModifier : AAttributeModifier<SingleValueModifier.BaseParams, Attribute<float>>
 {
     [System.Serializable]
-    public class Params : AttributeParam<float>
+    public abstract class BaseParams : AttributeParam<float>
     {
         public int sourceAttributeType;
         public bool inverse;
-        public GameObject sourceGameObject = null;
 
-        public Params()
-            :this(0, 0, null, 0, false) { }
-
-        public Params(int p_ownerAttributeType, int p_ownerAttributeValueType, GameObject p_sourceGameObject, int p_sourceAttributeType, bool p_inverse) 
+        public BaseParams(int p_ownerAttributeType, int p_ownerAttributeValueType, bool p_inverse) 
             :base(0f, p_ownerAttributeType, p_ownerAttributeValueType)
         {
-            sourceGameObject = p_sourceGameObject;
-            sourceAttributeType = p_sourceAttributeType;
             inverse = p_inverse;
+        }
+
+        public abstract float Value { get; }
+    }
+    
+    [System.Serializable]
+    public class AttParams : BaseParams
+    {
+        Attribute<float> _source;
+        
+        public AttParams(int p_ownerAttributeType, int p_ownerAttributeValueType, bool p_inverse, GameObject p_sourceGameObject, int p_sourceAttributeType) 
+            :base(p_ownerAttributeType, p_ownerAttributeValueType, p_inverse)
+        {
+            _source = p_sourceGameObject.GetComponent<AttributeManager>().GetAttribute<float>(p_sourceAttributeType);
+        }
+
+        public override float Value
+        {
+            get { return _source.Value; }
         }
     }
 
-    Attribute<float> _source;
-    
-    bool _isDone = false;
-
-    public override void OnStart(GameObject p_owner)
+    [System.Serializable]
+    public class RawParams : BaseParams
     {
-        _source = Param.sourceGameObject.GetComponent<AttributeManager>().GetAttribute<float>(Param.sourceAttributeType);
+        float _value = 0f;
+
+        public RawParams(int p_ownerAttributeType, int p_ownerAttributeValueType, bool p_inverse, float p_value) 
+            :base(p_ownerAttributeType, p_ownerAttributeValueType, p_inverse)
+        {
+            _value = p_value;
+        }
+
+        public override float Value
+        {
+            get { return _value; }
+        }
     }
+
+    bool _isDone = false;
 
     public override void ApplyModifierCast(GameObject p_owner, Attribute<float> p_attribute)
     {
         if (!_isDone)
         {
-            float value = Param.inverse ? -_source.Value : _source.Value;
+            float value = Param.inverse ? -Param.Value : Param.Value;
             p_attribute.SetValue(Param.attributeValueType, p_attribute.GetValue(Param.attributeValueType) + value);
             _isDone = true;
         }

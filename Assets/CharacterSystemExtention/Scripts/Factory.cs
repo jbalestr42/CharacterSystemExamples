@@ -24,8 +24,8 @@ public static class Factory
                 break;
 
 
-            case AttributModifierType.SingleValueAttribute:
-                modifierFactor = new SingleValueAttributeModifier();
+            case AttributModifierType.SingleValue:
+                modifierFactor = new SingleValueModifier();
                 break;
 
             default:

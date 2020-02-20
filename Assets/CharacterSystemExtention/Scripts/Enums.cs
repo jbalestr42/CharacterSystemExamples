@@ -33,7 +33,7 @@ public enum AttributModifierType
     Resource,
 	DurationRatio,
     Duration,
-    SingleValueAttribute
+    SingleValue
 }
 
 public enum EventType
