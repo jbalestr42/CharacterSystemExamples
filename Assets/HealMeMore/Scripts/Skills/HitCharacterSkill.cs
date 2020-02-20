@@ -20,7 +20,7 @@ public class HitCharacterSkill : AAttributeSkill
         AttributeManager attributeManager = target?.GetComponent<AttributeManager>();
         if (target != null && attributeManager != null)
         {
-            attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.SimpleValue, target, new SingleValueAttributeModifier.Params(AttributeType.Health, AttributeValueType.Add, p_owner, AttributeType.Damage, true)));
+            attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.SingleValueAttribute, target, new SingleValueAttributeModifier.Params(AttributeType.Health, AttributeValueType.Add, p_owner, AttributeType.Damage, true)));
         }
 	}
 }
