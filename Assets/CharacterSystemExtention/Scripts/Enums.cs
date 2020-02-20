@@ -22,6 +22,10 @@ public class AttributeType
     public static int AttackRate = 8;
     public static int Range = 9;
     public static int Money = 10;
+    public static int HealPower = 11;
+    public static int Mana = 12;
+    public static int ManaRegen = 13;
+    public static int ManaMax = 14;
 }
 
 public enum AttributModifierType
