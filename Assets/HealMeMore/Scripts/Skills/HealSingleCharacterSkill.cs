@@ -9,7 +9,7 @@ public class HealSingleCharacterSkill : ASkill
     {
         List<IRequirement> requirements = new List<IRequirement>();
 		requirements.Add(new GameStartReq());
-        // todo add mana req
+		requirements.Add(new AttributeComparisonReq(AttributeType.Mana, _manaCost, AttributeComparisonReq.ComparisonType.GreaterThanOrEqual));
 
         AttributeManager attributeManager = GetComponent<AttributeManager>();
         IProgressTracker progressTracker = GetComponent<IProgressTrackerProvider>()?.CreateTracker();
