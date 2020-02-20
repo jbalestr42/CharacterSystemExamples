@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AttributeManager))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IHasTarget
 {
 	void Start()
     {
@@ -12,4 +12,9 @@ public class Player : MonoBehaviour
 		attributeManager.AddAttribute(AttributeType.HealPower, new BasicAttribute(50, 0, 1000));
         attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.Resource, gameObject, new ResourceModifier.Params(AttributeType.ManaRegen, AttributeType.ManaMax, AttributeType.Mana)));
 	}
+
+    public GameObject GetTarget()
+    {
+        return Game.Instance.LeftTeam[0].gameObject;
+    }
 }
