@@ -1,20 +1,16 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealSingleCharacterSkill : ASkill
 {
     public float _manaCost;
 
-	void Start()
+	public HealSingleCharacterSkill(GameObject p_owner, float p_castDuration, float p_cooldownDuration, float manaCost)
+        :base(p_owner, p_castDuration, p_cooldownDuration)
     {
-        List<IRequirement> requirements = new List<IRequirement>();
-		requirements.Add(new GameStartReq());
-		requirements.Add(new AttributeComparisonReq(AttributeType.Mana, _manaCost, AttributeComparisonReq.ComparisonType.GreaterThanOrEqual));
-
-        AttributeManager attributeManager = GetComponent<AttributeManager>();
-        IProgressTracker progressTracker = GetComponent<IProgressTrackerProvider>()?.CreateTracker();
-
-		Init(0f, 5f, requirements, progressTracker);
+        _manaCost = manaCost;
+	
+        Requirements.Add(new GameStartReq());
+		Requirements.Add(new AttributeComparisonReq(AttributeType.Mana, _manaCost, AttributeComparisonReq.ComparisonType.GreaterThanOrEqual));
     }
 
     public override void Cast(GameObject p_owner)
@@ -24,7 +20,7 @@ public class HealSingleCharacterSkill : ASkill
         if (target != null && attributeManager != null)
         {
             attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.SingleValue, target, new SingleValueModifier.AttParams(AttributeType.Health, AttributeValueType.Add, false, p_owner, AttributeType.HealPower)));
-            GetComponent<AttributeManager>()?.AddModifier(Factory.GetModifier(AttributModifierType.SingleValue, p_owner, new SingleValueModifier.RawParams(AttributeType.Mana, AttributeValueType.Add, true, _manaCost)));
+            p_owner.GetComponent<AttributeManager>()?.AddModifier(Factory.GetModifier(AttributModifierType.SingleValue, p_owner, new SingleValueModifier.RawParams(AttributeType.Mana, AttributeValueType.Add, true, _manaCost)));
         }
 	}
 }

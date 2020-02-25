@@ -4,14 +4,14 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
     GameObject _manaFill = null;
-
+    
     AttributeManager _attributeManager = null;
 
     void Start()
     {
         _attributeManager = GetComponent<AttributeManager>();
-        Attribute<float> health = _attributeManager.GetAttribute<float>(AttributeType.Mana);
-        health.OnValueChanged += OnManaChanged;
+        Attribute<float> mana = _attributeManager.GetAttribute<float>(AttributeType.Mana);
+        mana.OnValueChanged += OnManaChanged;
     }
 
     public void OnManaChanged(Attribute<float> p_attribute)

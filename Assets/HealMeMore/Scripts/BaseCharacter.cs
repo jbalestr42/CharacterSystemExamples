@@ -12,7 +12,7 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
 {
     public Teams Team { get; set; }
 
-	void Start()
+	void Awake()
     {
         // TODO: init from SO
 		AttributeManager attributeManager = GetComponent<AttributeManager>();

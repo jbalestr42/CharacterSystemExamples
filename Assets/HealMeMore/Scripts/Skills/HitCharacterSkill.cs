@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HitCharacterSkill : AAttributeSkill
+public class HitSingleCharacterSkill : AAttributeSkill
 {
-	void Start()
+	public HitSingleCharacterSkill(GameObject p_owner, int p_attributeCooldown)
+        :base(p_owner, null, null)
     {
-        List<IRequirement> requirements = new List<IRequirement>();
-		requirements.Add(new GameStartReq());
-
-        AttributeManager attributeManager = GetComponent<AttributeManager>();
-        IProgressTracker progressTracker = GetComponent<IProgressTrackerProvider>()?.CreateTracker();
-
-		Init(null, attributeManager.GetAttribute<float>(AttributeType.AttackRate), requirements, progressTracker);
+		Requirements.Add(new GameStartReq());
+        
+        AttributeManager attributeManager = p_owner.GetComponent<AttributeManager>();
+        CooldownDurationAtt = attributeManager.GetAttribute<float>(p_attributeCooldown);
     }
 
     public override void Cast(GameObject p_owner)

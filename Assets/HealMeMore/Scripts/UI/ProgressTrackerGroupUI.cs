@@ -15,7 +15,7 @@ public class ProgressTrackerGroupUI : MonoBehaviour, IProgressTrackerProvider
     [SerializeField]
     Transform _progressTrackerGroup = null;
 
-    public IProgressTracker CreateTracker()
+    public GameObject CreateTracker() // TODO add data as parameters
     {
         GameObject progressTrackerGameObject = Instantiate(_progressTrackerPrefab);
         IProgressTracker progressTracker = progressTrackerGameObject.GetComponent<IProgressTracker>();
@@ -24,6 +24,6 @@ public class ProgressTrackerGroupUI : MonoBehaviour, IProgressTrackerProvider
         progressTrackerGameObject.GetComponent<ProgressIconUI>().Init(Color.cyan, true);
         progressTrackerGameObject.transform.SetParent(_progressTrackerGroup);
 
-        return progressTracker;
+        return progressTrackerGameObject;
     }
 }

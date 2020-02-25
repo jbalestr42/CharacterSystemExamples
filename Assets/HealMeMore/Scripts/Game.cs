@@ -24,7 +24,13 @@ public class Game : Singleton<Game>
     void Init()
     {
         BaseCharacter c = _uiManager.AddLeftTeam();
-        c.gameObject.AddComponent<HitCharacterSkill>();
+        
+        IProgressTrackerProvider progressTrackerProvider = c.GetComponent<IProgressTrackerProvider>();
+        GameObject progressTracker = progressTrackerProvider?.CreateTracker();
+        ASkillController skillController = progressTracker.GetComponent<ASkillController>();
+        skillController.Skill = new HitSingleCharacterSkill(c.gameObject, AttributeType.AttackRate);
+        skillController.ProgressTracker = progressTracker.GetComponent<IProgressTracker>();
+
         LeftTeam.Add(c);
         RightTeam.Add(_uiManager.AddRightTeam());
     }
