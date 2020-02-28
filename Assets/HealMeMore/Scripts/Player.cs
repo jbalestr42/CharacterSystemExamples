@@ -3,6 +3,8 @@
 [RequireComponent(typeof(AttributeManager))]
 public class Player : MonoBehaviour, IHasTarget
 {
+    GameObject _target = null;
+
 	void Awake()
     {
 		AttributeManager attributeManager = GetComponent<AttributeManager>();
@@ -15,15 +17,21 @@ public class Player : MonoBehaviour, IHasTarget
         IProgressTrackerProvider progressTrackerProvider = GetComponent<IProgressTrackerProvider>();
 
         // TODO Init all this from data
-         // TODO: rename ?
+         // TODO: rename create tracker?
         GameObject progressTracker = progressTrackerProvider?.CreateTracker();
         ASkillController skillController = progressTracker.GetComponent<ASkillController>();
-        skillController.Skill = new HealSingleCharacterSkill(gameObject, 0f, 3f, 50f);
+        ASkill skill = new HealSingleCharacterSkill(gameObject, 0f, 3f, 50f);
+        skillController.Skill = new InteractionSkill(new SelectCharacterInteraction(this), skill);
         skillController.ProgressTracker = progressTracker.GetComponent<IProgressTracker>();
 	}
 
     public GameObject GetTarget()
     {
-        return Game.Instance.LeftTeam[0].gameObject;
+        return _target;
+    }
+
+    public void SetTarget(GameObject p_target)
+    {
+        _target = p_target;
     }
 }

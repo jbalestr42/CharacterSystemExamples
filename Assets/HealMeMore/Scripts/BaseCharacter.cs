@@ -30,4 +30,9 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
         List<BaseCharacter> characters = Game.Instance.GetOppositeTeam(Team);
         return characters.Count > 0 ? characters[0].gameObject : null;
     }
+
+    public void SetTarget(GameObject p_target)
+    {
+        //TODO
+    }
 }

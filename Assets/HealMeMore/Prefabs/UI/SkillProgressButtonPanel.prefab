@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 114213840065179472}
   - component: {fileID: -3892940400365606010}
   - component: {fileID: 8436554240697281705}
-  - component: {fileID: 9074687537853365954}
+  - component: {fileID: 6484602258806804432}
   m_Layer: 5
   m_Name: SkillProgressButtonPanel
   m_TagString: Untagged
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &9074687537853365954
+--- !u!114 &6484602258806804432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef8587930f35f44f945bd2f020161aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 0}
 --- !u!1 &1565885834141038
 GameObject:
   m_ObjectHideFlags: 0

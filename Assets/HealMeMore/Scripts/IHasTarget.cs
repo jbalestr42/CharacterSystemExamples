@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public interface IHasTarget
+public interface IHasTarget // TODO rename 
 {
     GameObject GetTarget();
+    void SetTarget(GameObject p_target);
 }
