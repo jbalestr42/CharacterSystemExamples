@@ -5,8 +5,8 @@ public class HealSingleCharacterSkill : ASkill
 {
     public float _manaCost;
 
-	public HealSingleCharacterSkill(GameObject p_owner, float p_castDuration, float p_cooldownDuration, float manaCost)
-        :base(p_owner, p_castDuration, p_cooldownDuration)
+	public HealSingleCharacterSkill(GameObject p_owner, float p_cooldownDuration, float manaCost)
+        :base(p_owner, p_cooldownDuration)
     {
         _manaCost = manaCost;
 	

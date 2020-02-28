@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IHasTarget
          // TODO: rename create tracker?
         GameObject progressTracker = progressTrackerProvider?.CreateTracker();
         ASkillController skillController = progressTracker.GetComponent<ASkillController>();
-        ASkill skill = new HealSingleCharacterSkill(gameObject, 0f, 3f, 50f);
+        ASkill skill = new HealSingleCharacterSkill(gameObject, 3f, 50f);
         skillController.Skill = new InteractionSkill(new SelectCharacterInteraction(this), skill);
         skillController.ProgressTracker = progressTracker.GetComponent<IProgressTracker>();
 	}

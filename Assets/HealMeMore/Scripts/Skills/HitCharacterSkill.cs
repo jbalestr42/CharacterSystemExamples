@@ -3,7 +3,7 @@
 public class HitSingleCharacterSkill : AAttributeSkill
 {
 	public HitSingleCharacterSkill(GameObject p_owner, int p_attributeCooldown)
-        :base(p_owner, null, null)
+        :base(p_owner, null)
     {
 		Requirements.Add(new GameStartReq());
         

@@ -9,11 +9,10 @@ public class InteractionSkill : ASkill
     AInteraction _interaction = null;
     ASkill _skill = null;
     
-    public override float CastDuration { get { return _skill == null ? 0f : _skill.CastDuration; } }
     public override float CooldownDuration { get { return _skill == null ? 0f : _skill.CooldownDuration; } }
 
 	public InteractionSkill(AInteraction p_interaction, ASkill p_skill)
-        :base(p_skill?.Owner, 0f, 0f)
+        :base(p_skill?.Owner, 0f)
     {
         _interaction = p_interaction;
         _interaction.OnInteractionDone += OnInteractionDone;
