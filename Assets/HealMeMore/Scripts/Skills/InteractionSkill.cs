@@ -12,7 +12,7 @@ public class InteractionSkill : ASkill
     public override float CooldownDuration { get { return _skill == null ? 0f : _skill.CooldownDuration; } }
 
 	public InteractionSkill(AInteraction p_interaction, ASkill p_skill)
-        :base(p_skill?.Owner, 0f)
+        :base("[Interaction] " + p_skill.Name, p_skill?.Owner, 0f)
     {
         _interaction = p_interaction;
         _interaction.OnInteractionDone += OnInteractionDone;
@@ -20,7 +20,13 @@ public class InteractionSkill : ASkill
         _skill = p_skill;
     }
 
-    public override void Cast(GameObject p_owner)
+    public override void OnCast(GameObject p_owner)
+    {
+        Cast(p_owner);
+        // Don't set IsDone to true here
+	}
+
+    protected override void Cast(GameObject p_owner)
     {
         Debug.Log("Cast interaction skill.");
         InteractionManager.Instance.SetInteraction(_interaction);
@@ -33,7 +39,7 @@ public class InteractionSkill : ASkill
         if (_skill?.Owner?.GetComponent<IHasTarget>()?.GetTarget() != null)
         {
             Debug.Log("OnInteractionDone success");
-            _skill?.Cast(Owner);
+            _skill.OnCast(Owner);
             // Terminate skill
         }
         else
@@ -41,6 +47,9 @@ public class InteractionSkill : ASkill
             Debug.Log("OnInteractionDone failed: no target");
             // Cancel skill
         }
+
+        // Terminate the skill at this point
+        IsDone = true;
     }
     
     public virtual void OnInteractionCancelled()

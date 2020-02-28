@@ -3,7 +3,7 @@
 public class HitSingleCharacterSkill : AAttributeSkill
 {
 	public HitSingleCharacterSkill(GameObject p_owner, int p_attributeCooldown)
-        :base(p_owner, null)
+        :base("HitSingleCharacterSkill", p_owner, null)
     {
 		Requirements.Add(new GameStartReq());
         
@@ -11,7 +11,7 @@ public class HitSingleCharacterSkill : AAttributeSkill
         CooldownDurationAtt = attributeManager.GetAttribute<float>(p_attributeCooldown);
     }
 
-    public override void Cast(GameObject p_owner)
+    protected override void Cast(GameObject p_owner)
     {
         GameObject target = p_owner.GetComponent<IHasTarget>()?.GetTarget();
         AttributeManager attributeManager = target?.GetComponent<AttributeManager>();
