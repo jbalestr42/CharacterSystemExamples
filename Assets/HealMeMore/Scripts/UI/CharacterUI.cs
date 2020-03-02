@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
 
 public class CharacterUI : MonoBehaviour
 {
@@ -10,17 +9,22 @@ public class CharacterUI : MonoBehaviour
     GameObject _healthText = null;
 
     AttributeManager _attributeManager = null;
+    Attribute<float> _health = null;
+    Attribute<float> _healthMax = null;
 
     void Start()
     {
         _attributeManager = GetComponent<AttributeManager>();
-        Attribute<float> health = _attributeManager.GetAttribute<float>(AttributeType.Health);
-        health.OnValueChanged += OnHealthChanged;
+        _health = _attributeManager.GetAttribute<float>(AttributeType.Health);
+        _healthMax = _attributeManager.GetAttribute<float>(AttributeType.HealthMax);
+        
+        _health.AddOnValueChangedDelegate(OnHealthChanged);
+        _healthMax.AddOnValueChangedDelegate(OnHealthChanged);
     }
 
     public void OnHealthChanged(Attribute<float> p_attribute)
     {
-        _healthFill.GetComponent<UnityEngine.UI.Image>().fillAmount = p_attribute.Value / p_attribute.GetValue(AttributeValueType.Max);
-        _healthText.GetComponent<UnityEngine.UI.Text>().text = p_attribute.Value + " / " + p_attribute.GetValue(AttributeValueType.Max);
+        _healthFill.GetComponent<UnityEngine.UI.Image>().fillAmount = _health.Value / _healthMax.Value;
+        _healthText.GetComponent<UnityEngine.UI.Text>().text = _health.Value + " / " + _healthMax.Value;
     }
 }

@@ -46,6 +46,7 @@ public enum CharacterType
 {
     None,
     Warrior,
+    LittleWarrior,
     Goblin,
     Spider
 }

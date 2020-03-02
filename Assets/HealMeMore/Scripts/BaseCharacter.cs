@@ -23,7 +23,7 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
     public GameObject GetTarget()
     {
         List<BaseCharacter> characters = Game.Instance.GetOppositeTeam(Team);
-        return characters.Count > 0 ? characters[0].gameObject : null;
+        return characters.Count > 0 ? characters[Random.Range(0, characters.Count)].gameObject : null;
     }
 
     public void SetTarget(GameObject p_target)

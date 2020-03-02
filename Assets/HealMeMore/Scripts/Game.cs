@@ -22,13 +22,17 @@ public class Game : Singleton<Game>
 
     void Init()
     {
-        BaseCharacter character = _uiManager.AddLeftTeam();
-        Factory.InitCharacter(CharacterType.Warrior, character);
-        LeftTeam.Add(character);
-
-        character = _uiManager.AddRightTeam();
-        Factory.InitCharacter(CharacterType.Goblin, character);
-        RightTeam.Add(character);
+        List<BaseCharacter> characters = DataManager.Instance.InitCharacterFromLevel(0, () => { return _uiManager.AddLeftTeam(); });
+        foreach (BaseCharacter character in characters)
+        {
+            LeftTeam.Add(character);
+        }
+        
+        characters = DataManager.Instance.InitCharacterFromLevel(1, () => { return _uiManager.AddRightTeam(); });
+        foreach (BaseCharacter character in characters)
+        {
+            RightTeam.Add(character);
+        }
     }
 
     public void OnStartClick()

@@ -11,7 +11,7 @@ public class PlayerUI : MonoBehaviour
     {
         _attributeManager = GetComponent<AttributeManager>();
         Attribute<float> mana = _attributeManager.GetAttribute<float>(AttributeType.Mana);
-        mana.OnValueChanged += OnManaChanged;
+        mana.AddOnValueChangedDelegate(OnManaChanged);
     }
 
     public void OnManaChanged(Attribute<float> p_attribute)
