@@ -7,26 +7,26 @@ using UnityEngine;
 /// </summary>
 public class DataManager : Singleton<DataManager>
 {
-    public ProgressTrackerGroupUI.TrackerData HitSingleCharacterTrackerData = null;
-    public ProgressTrackerGroupUI.TrackerData HealSingleCharacterTrackerData = null;
+    public SkillGroup.DisplayData HitSingleCharacterDisplayData = null;
+    public SkillGroup.DisplayData HealSingleCharacterDisplayData = null;
 
-    public ProgressTrackerGroupUI.TrackerData CreateTrackerData(SkillType p_skillType)
+    public SkillGroup.DisplayData CreateDisplaySkillData(SkillType p_skillType)
     {
-        ProgressTrackerGroupUI.TrackerData trackerdata = null;
+        SkillGroup.DisplayData displayData = null;
         switch (p_skillType)
         {
             case SkillType.HealSingleCharacter:
-                trackerdata = HealSingleCharacterTrackerData;
+                displayData = HealSingleCharacterDisplayData;
                 break;
                 
             case SkillType.HitSingleCharacter:
-                trackerdata = HitSingleCharacterTrackerData;
+                displayData = HitSingleCharacterDisplayData;
                 break;
 
             default:
                 break;
         }
 
-        return trackerdata;
+        return displayData;
     }
 }

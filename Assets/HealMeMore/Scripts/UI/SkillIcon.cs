@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ProgressIconUI : MonoBehaviour, IProgressTracker
+public class SkillIcon : MonoBehaviour, IProgressTracker
 {
     [SerializeField]
     UnityEngine.UI.Image _background = null;

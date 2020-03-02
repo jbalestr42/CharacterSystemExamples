@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: HitSingleCharacter_TrackerData
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressTrackerGroupUI/TrackerData
+  m_Name: HealSingleCharacter_DisplayData
+  m_EditorClassIdentifier: Assembly-CSharp::SkillGroup/DisplayData
   color: {r: 1, g: 1, b: 1, a: 1}
   showDuration: 1
-  sprite: {fileID: 304673328547675638, guid: 5f65147cad79eb54cb7e4267575e7209, type: 3}
+  sprite: {fileID: 0}

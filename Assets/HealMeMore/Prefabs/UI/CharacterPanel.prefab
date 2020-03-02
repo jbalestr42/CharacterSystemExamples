@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d6c4913172d98498a4c7b229aa5ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterType: 0
 --- !u!114 &4692021374836915157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08e960ae8a9a544aab8fd08abd17778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressTrackerPrefab: {fileID: 1523483299545988, guid: ffcf4a67d323a1d48838348d44d20a7a,
+  _skillPrefab: {fileID: 1523483299545988, guid: ffcf4a67d323a1d48838348d44d20a7a,
     type: 3}
-  _progressTrackerGroup: {fileID: 257032145}
+  _group: {fileID: 257032145}

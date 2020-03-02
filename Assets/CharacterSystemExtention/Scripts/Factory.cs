@@ -69,7 +69,7 @@ public static class Factory
     public static void InitCharacter(CharacterType p_charachterType, BaseCharacter p_character)
     {
         AttributeManager attributeManager = p_character.GetComponent<AttributeManager>();
-        ProgressTrackerGroupUI progressTrackerProvider = p_character.GetComponent<ProgressTrackerGroupUI>();
+        SkillGroup progressTrackerProvider = p_character.GetComponent<SkillGroup>();
 
         switch (p_charachterType)
         {
@@ -86,10 +86,10 @@ public static class Factory
                 attributeManager.AddModifier(GetModifier(AttributModifierType.Resource, p_character.gameObject, new ResourceModifier.Params(AttributeType.HealthRegen, AttributeType.HealthMax, AttributeType.Health)));
                 attributeManager.AddModifier(GetModifier(AttributModifierType.DurationRatio, p_character.gameObject, new DurationModifier.Params<float>(null, false, 10, 2.0f, AttributeType.AttackRate, AttributeValueType.RelativeBonus)));
                 
-                GameObject progressTracker = progressTrackerProvider.CreateTracker(DataManager.Instance.CreateTrackerData(SkillType.HitSingleCharacter));
-                ASkillController skillController = progressTracker.GetComponent<ASkillController>();
+                GameObject skill = progressTrackerProvider.CreateSkill(DataManager.Instance.CreateDisplaySkillData(SkillType.HitSingleCharacter));
+                ASkillController skillController = skill.GetComponent<ASkillController>();
                 skillController.Skill = new HitSingleCharacterSkill(p_character.gameObject, AttributeType.AttackRate);
-                skillController.ProgressTracker = progressTracker.GetComponent<IProgressTracker>();
+                skillController.ProgressTracker = skill.GetComponent<IProgressTracker>();
             break;
 
             case CharacterType.Goblin:
