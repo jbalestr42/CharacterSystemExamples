@@ -17,7 +17,7 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
 
 	void Awake()
     {
-        Factory.InitCharacter(_characterType, this);
+        DataManager.Instance.InitCharacter(_characterType, this);
 	}
 
     public GameObject GetTarget()
