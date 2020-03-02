@@ -5,6 +5,9 @@ public class CharacterUI : MonoBehaviour
 {
     [SerializeField]
     GameObject _healthFill = null;
+    
+    [SerializeField]
+    GameObject _healthText = null;
 
     AttributeManager _attributeManager = null;
 
@@ -18,5 +21,6 @@ public class CharacterUI : MonoBehaviour
     public void OnHealthChanged(Attribute<float> p_attribute)
     {
         _healthFill.GetComponent<UnityEngine.UI.Image>().fillAmount = p_attribute.Value / p_attribute.GetValue(AttributeValueType.Max);
+        _healthText.GetComponent<UnityEngine.UI.Text>().text = p_attribute.Value + " / " + p_attribute.GetValue(AttributeValueType.Max);
     }
 }
