@@ -1,28 +1,11 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Assertions;
 
 /// <summary>
 /// Create a skill and add it to the given group
 /// </summary>
-public class SkillGroup : MonoBehaviour, ISkillGroup<SkillGroup.DisplayData>
+public class SkillGroup : MonoBehaviour, ISkillGroup<SkillIcon.DisplayData>
 {
-    [SerializeField]
-    public class DisplayData : ScriptableObject
-    {
-        public Color color = Color.white;
-        public bool showDuration = true;
-        public Sprite sprite = null;
-
-        public DisplayData() {}
-
-	    [MenuItem("Assets/Create/DisplayData")]
-	    public static void CreateAsset()
-	    {
-		    ScriptableObjectUtility.CreateAsset<DisplayData>();
-	    }
-    }
-    
     /// <summary>
     /// A prefab that implements the IProgressTracker interface and ASkillController
     /// </summary>
@@ -44,12 +27,12 @@ public class SkillGroup : MonoBehaviour, ISkillGroup<SkillGroup.DisplayData>
         Assert.IsNotNull(_group, "A gameObject must be provided");
     }
 
-    public GameObject CreateSkill(DisplayData p_displayData)
+    public GameObject CreateSkill(SkillIcon.DisplayData p_displayData)
     {
         Assert.IsNotNull(p_displayData, "Data must be provided.");
         
         GameObject skill = Instantiate(_skillPrefab);
-        skill.GetComponent<SkillIcon>().Init(p_displayData.sprite, p_displayData.color, p_displayData.showDuration);
+        skill.GetComponent<SkillIcon>().Init(p_displayData);
         skill.transform.SetParent(_group);
 
         return skill;

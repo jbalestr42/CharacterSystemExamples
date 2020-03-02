@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
+﻿/// <summary>
 /// Fastest way to retrieve data for now
 /// </summary>
 public class DataManager : Singleton<DataManager>
 {
-    public SkillGroup.DisplayData HitSingleCharacterDisplayData = null;
-    public SkillGroup.DisplayData HealSingleCharacterDisplayData = null;
+    public SkillIcon.DisplayData HitSingleCharacterDisplayData = null;
+    public SkillIcon.DisplayData HealSingleCharacterDisplayData = null;
 
-    public SkillGroup.DisplayData CreateDisplaySkillData(SkillType p_skillType)
+    public SkillIcon.DisplayData CreateDisplaySkillData(SkillType p_skillType)
     {
-        SkillGroup.DisplayData displayData = null;
+        SkillIcon.DisplayData displayData = null;
         switch (p_skillType)
         {
             case SkillType.HealSingleCharacter:

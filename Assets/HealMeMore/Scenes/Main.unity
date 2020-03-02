@@ -1479,9 +1479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f8dc9b21e2ec3439d4014f618522a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitSingleCharacterDisplayData: {fileID: 11400000, guid: fc777fd6eb94dda49bf49ec826475ddd,
+  HitSingleCharacterDisplayData: {fileID: 11400000, guid: ce726aa54b59caf469a9bfcddd5a9b92,
     type: 2}
-  HealSingleCharacterDisplayData: {fileID: 11400000, guid: fc777fd6eb94dda49bf49ec826475ddd,
+  HealSingleCharacterDisplayData: {fileID: 11400000, guid: ad01054bcdc986d40b3d8e576f8bbef2,
     type: 2}
 --- !u!114 &1946666935
 MonoBehaviour:

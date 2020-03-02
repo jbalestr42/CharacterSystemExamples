@@ -3,6 +3,16 @@
 public class SkillIcon : MonoBehaviour, IProgressTracker
 {
     [SerializeField]
+    public class DisplayData : ScriptableObject
+    {
+        public Color color = Color.white;
+        public bool showDuration = true;
+        public Sprite sprite = null;
+
+        public DisplayData() {}
+    }
+
+    [SerializeField]
     UnityEngine.UI.Image _background = null;
 
     [SerializeField]
@@ -13,12 +23,12 @@ public class SkillIcon : MonoBehaviour, IProgressTracker
 
     bool _showDuration = true;
 
-    public void Init(Sprite sprite, Color p_color, bool p_showDuration)
+    public void Init(DisplayData p_displayData)
     {
-        _background.sprite = sprite;
-        _background.color = p_color;
-        _showDuration = p_showDuration;
-        EnableTimer(p_showDuration);
+        _background.sprite = p_displayData.sprite;
+        _background.color = p_displayData.color;
+        _showDuration = p_displayData.showDuration;
+        EnableTimer(p_displayData.showDuration);
     }
 
     public void UpdateProgress(float p_progress, float p_duration)
