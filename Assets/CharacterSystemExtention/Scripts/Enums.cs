@@ -42,6 +42,14 @@ public enum SkillType
     HealSingleCharacter
 }
 
+public enum CharacterType
+{
+    None,
+    Warrior,
+    Goblin,
+    Spider
+}
+
 public enum EventType
 {
 	OnGetDamaged,

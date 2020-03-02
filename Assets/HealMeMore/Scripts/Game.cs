@@ -23,16 +23,13 @@ public class Game : Singleton<Game>
 
     void Init()
     {
-        BaseCharacter c = _uiManager.AddLeftTeam();
-        
-        ProgressTrackerGroupUI progressTrackerProvider = c.GetComponent<ProgressTrackerGroupUI>();
-        GameObject progressTracker = progressTrackerProvider.CreateTracker(DataManager.Instance.CreateTrackerData(SkillType.HitSingleCharacter));
-        ASkillController skillController = progressTracker.GetComponent<ASkillController>();
-        skillController.Skill = new HitSingleCharacterSkill(c.gameObject, AttributeType.AttackRate);
-        skillController.ProgressTracker = progressTracker.GetComponent<IProgressTracker>();
+        BaseCharacter character = _uiManager.AddLeftTeam();
+        Factory.InitCharacter(CharacterType.Warrior, character);
+        LeftTeam.Add(character);
 
-        LeftTeam.Add(c);
-        RightTeam.Add(_uiManager.AddRightTeam());
+        character = _uiManager.AddRightTeam();
+        Factory.InitCharacter(CharacterType.Goblin, character);
+        RightTeam.Add(character);
     }
 
     public void OnStartClick()
