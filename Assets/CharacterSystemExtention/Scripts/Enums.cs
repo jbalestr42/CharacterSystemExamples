@@ -36,6 +36,12 @@ public enum AttributModifierType
     SingleValue
 }
 
+public enum SkillType
+{
+    HitSingleCharacter,
+    HealSingleCharacter
+}
+
 public enum EventType
 {
 	OnGetDamaged,

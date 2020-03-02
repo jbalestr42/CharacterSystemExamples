@@ -13,8 +13,9 @@ public class ProgressIconUI : MonoBehaviour, IProgressTracker
 
     bool _showDuration = true;
 
-    public void Init(Color p_color, bool p_showDuration)
+    public void Init(Sprite sprite, Color p_color, bool p_showDuration)
     {
+        _background.sprite = sprite;
         _background.color = p_color;
         _showDuration = p_showDuration;
         EnableTimer(p_showDuration);

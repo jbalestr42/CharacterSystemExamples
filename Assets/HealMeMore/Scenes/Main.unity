@@ -644,8 +644,8 @@ Camera:
   m_GameObject: {fileID: 697671669}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.9245283, g: 0.82166046, b: 0.5276789, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1431,6 +1431,7 @@ GameObject:
   - component: {fileID: 1946666936}
   - component: {fileID: 1946666932}
   - component: {fileID: 1946666933}
+  - component: {fileID: 1946666934}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1465,6 +1466,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _raycaster: {fileID: 368405438}
   _eventSystem: {fileID: 1412491242}
+--- !u!114 &1946666934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946666931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f8dc9b21e2ec3439d4014f618522a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitSingleCharacterTrackerData: {fileID: 11400000, guid: bc2c04cbc954c49489c12f6f0bc20a72,
+    type: 2}
+  HealSingleCharacterTrackerData: {fileID: 11400000, guid: c7ef891582433bb4aaed88a404236561,
+    type: 2}
 --- !u!224 &1946666936
 RectTransform:
   m_ObjectHideFlags: 0

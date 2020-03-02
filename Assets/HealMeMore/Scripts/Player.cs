@@ -14,11 +14,11 @@ public class Player : MonoBehaviour, IHasTarget
 		attributeManager.AddAttribute(AttributeType.HealPower, new BasicAttribute(50, 0, 1000));
         attributeManager.AddModifier(Factory.GetModifier(AttributModifierType.Resource, gameObject, new ResourceModifier.Params(AttributeType.ManaRegen, AttributeType.ManaMax, AttributeType.Mana)));
 
-        IProgressTrackerProvider progressTrackerProvider = GetComponent<IProgressTrackerProvider>();
+        ProgressTrackerGroupUI progressTrackerProvider = GetComponent<ProgressTrackerGroupUI>();
 
         // TODO Init all this from data
          // TODO: rename create tracker?
-        GameObject progressTracker = progressTrackerProvider?.CreateTracker();
+        GameObject progressTracker = progressTrackerProvider.CreateTracker(DataManager.Instance.CreateTrackerData(SkillType.HealSingleCharacter));
         ASkillController skillController = progressTracker.GetComponent<ASkillController>();
         ASkill skill = new HealSingleCharacterSkill(gameObject, 3f, 50f);
         skillController.Skill = new InteractionSkill(new SelectCharacterInteraction(this), skill);
