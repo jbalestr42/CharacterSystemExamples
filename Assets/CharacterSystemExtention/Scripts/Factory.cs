@@ -19,11 +19,9 @@ public static class Factory
                 modifierFactor = new DurationRatioModifier();
                 break;
 
-
             case AttributModifierType.Duration:
                 modifierFactor = new DurationModifier();
                 break;
-
 
             case AttributModifierType.SingleValue:
                 modifierFactor = new SingleValueModifier();

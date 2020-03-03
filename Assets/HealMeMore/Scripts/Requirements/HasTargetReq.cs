@@ -7,7 +7,7 @@ public class HasTargetReq : IRequirement
     {
         IHasTarget hasTarget = p_owner.GetComponent<IHasTarget>();
 
-        Assert.IsNotNull(hasTarget, "This component must have implements IHasTarget.");
+        Assert.IsNotNull(hasTarget, "This component must implements IHasTarget.");
 
         return hasTarget?.GetTarget() != null;
     }

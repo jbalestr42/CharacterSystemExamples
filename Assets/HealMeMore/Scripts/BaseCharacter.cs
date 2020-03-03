@@ -1,12 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public enum Teams
-{
-    Left,
-    Right
-}
-
 [RequireComponent(typeof(AttributeManager))]
 public class BaseCharacter : MonoBehaviour, IHasTarget
 {
