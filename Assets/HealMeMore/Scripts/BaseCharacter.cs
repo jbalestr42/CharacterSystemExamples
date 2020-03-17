@@ -9,6 +9,8 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
     
     public Teams Team { get; set; }
 
+    GameObject _currentTarget = null;
+
 	void Awake()
     {
         DataManager.Instance.InitCharacter(_characterType, this);
@@ -16,12 +18,19 @@ public class BaseCharacter : MonoBehaviour, IHasTarget
 
     public GameObject GetTarget()
     {
-        List<BaseCharacter> characters = Game.Instance.GetOppositeTeam(Team);
-        return characters.Count > 0 ? characters[Random.Range(0, characters.Count)].gameObject : null;
+        GameObject target = _currentTarget;
+
+        if (target == null)
+        {
+            List<BaseCharacter> characters = Game.Instance.GetOppositeTeam(Team);
+            target = characters.Count > 0 ? characters[Random.Range(0, characters.Count)].gameObject : null;
+
+        }
+        return target;
     }
 
     public void SetTarget(GameObject p_target)
     {
-        //TODO
+        _currentTarget = p_target;
     }
 }

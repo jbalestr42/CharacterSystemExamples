@@ -11,6 +11,7 @@ public class CharacterUI : MonoBehaviour
     AttributeManager _attributeManager = null;
     Attribute<float> _health = null;
     Attribute<float> _healthMax = null;
+    BaseCharacter _character;
 
     void Start()
     {
@@ -20,11 +21,24 @@ public class CharacterUI : MonoBehaviour
         
         _health.AddOnValueChangedDelegate(OnHealthChanged);
         _healthMax.AddOnValueChangedDelegate(OnHealthChanged);
+
+        _character = GetComponent<BaseCharacter>();
     }
 
     public void OnHealthChanged(Attribute<float> p_attribute)
     {
         _healthFill.GetComponent<UnityEngine.UI.Image>().fillAmount = _health.Value / _healthMax.Value;
         _healthText.GetComponent<UnityEngine.UI.Text>().text = _health.Value + " / " + _healthMax.Value;
+    }
+    
+    public void SelectCharacterInteraction()
+    {
+        Debug.Log("onclick");
+        if (!InteractionManager.Instance.IsInteracting())
+        {
+            Debug.Log("start");
+            AInteraction interaction = new SelectCharacterInteraction(_character);
+            InteractionManager.Instance.SetInteraction(interaction);
+        }
     }
 }

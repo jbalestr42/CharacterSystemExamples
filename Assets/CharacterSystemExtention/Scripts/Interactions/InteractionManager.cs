@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// TODO: Cancel current interaction if the target is not valid onclick ?
 public class InteractionManager : Singleton<InteractionManager>
 {
     enum Mode
@@ -167,6 +168,11 @@ public class InteractionManager : Singleton<InteractionManager>
         return _interaction;
     }
 
+    public bool IsInteracting()
+    {
+        return GetInteraction() != null;
+    }
+
     public void SetInteraction(AInteraction interaction)
     {
         CancelInteraction();
@@ -177,7 +183,7 @@ public class InteractionManager : Singleton<InteractionManager>
     {
         if (_interaction != null)
         {
-            _interaction.OnInteractionCancelled();
+            _interaction.OnInteractionCancelled?.Invoke();
             _interaction.Cancel();
             _interaction = null;
         }
@@ -187,7 +193,7 @@ public class InteractionManager : Singleton<InteractionManager>
     {
         if (_interaction != null)
         {
-            _interaction.OnInteractionDone();
+            _interaction.OnInteractionDone?.Invoke();
             _interaction.End();
             _interaction = null;
         }

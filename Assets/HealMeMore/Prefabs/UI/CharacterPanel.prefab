@@ -550,7 +550,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3759191539646004555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -628,6 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987871c1776968c4bb5e6b51eed3b39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _linePrefab: {fileID: 6909727788861215949, guid: 7921ee85b90caa048a81f8954bc246dc,
+    type: 3}
   _healthFill: {fileID: 3759191538540995651}
   _healthText: {fileID: 2447872479561905945}
 --- !u!114 &1716376559
@@ -807,4 +809,15 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3652147086456128535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4692021374836915157}
+        m_MethodName: SelectCharacterInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
